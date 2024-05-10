@@ -1,0 +1,17 @@
+{% extends 'extend.html' %}
+
+{% block title %}Report User{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Report User</h1>
+    <div>
+        <label for="report_comment">Write your comments:</label><br>
+        <textarea id="report_comment" name="report_comment" rows="4" cols="50"></textarea>
+    </div>
+    <div class="save-changes-btn">
+        <button onclick="reportUser()" style="background-color: #d2d24d; color: black; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 4px;">Report User</button>
+        <!-- <button onclick="reportUser()"class="home-button1">Report User</button> -->
+    </div>
+</div>
+{% endblock %}

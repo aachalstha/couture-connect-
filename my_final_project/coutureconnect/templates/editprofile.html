@@ -1,0 +1,28 @@
+{% extends 'extend.html' %}
+
+{% block content %}
+  <h1 class="home-button3">Edit Profile</h1>
+  <form method="post" enctype="multipart/form-data" class="profile-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save-changes-btn">Save changes</button>
+  </form>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

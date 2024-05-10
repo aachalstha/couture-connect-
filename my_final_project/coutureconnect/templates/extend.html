@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Title{% endblock %}</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <style>
+        .hello-msg{
+        font-size: 18px;
+        color: #f9f9f9;
+        /* padding-right: 500px; */
+        margin-top: 100px;
+        }
+
+        body {
+            background-color: #808000; /* Olive green background color */
+            height: 100%; /* Sets the minimum height to 100% of the viewport */
+            margin: 0; /* Removes default margin */
+            display: flex; /* Flex display to center content */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .login-button,
+        .signup-button {
+            padding: 10px 20px;
+            background-color: #d2d24d; /* Dark gray background */
+            color: rgb(11, 11, 11);
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .login-button:hover,
+        .signup-button:hover {
+            background-color: #40684f; /* Slightly lighter gray */
+        }
+
+        
+
+   .inbox-icon-container {
+  margin-right: 15px;
+}
+    .inbox-icon {
+    color: #070707;
+    transition: 0.5s;
+    }
+    .inbox-icon:hover {
+    transition: 0.5s;
+    }
+    .sent-message {
+    background-color: #f3f3f3;
+    border-radius: 30px;
+    padding: 10px 25px;
+    width: 25%
+    }
+    .received-message {
+    background-color: rgb(1, 196, 255);
+    color: #fff;
+    border-radius: 30px;
+    padding: 10px 25px;
+    width: 25%;
+    float: right;
+    }
+    .empty-text {
+    color: #777;
+    font-size: 1.5rem;
+    text-align: center;
+}
+h2 {
+  text-align: centre; /* Align the text to the left */
+  width: 100%; /* Full width to align with the image gallery */
+  margin-top: 100px; /* Add space above the heading, adjust as needed */
+  margin-bottom: 0px; /* Space between heading and images */
+  font-size: 100px
+}
+.image-gallery {
+  z-index: -1;  
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Align items to the end of the container (bottom) */
+  flex-wrap: wrap; /* Allows images to wrap onto the next line if needed */
+  position: absolute; /* Position at the bottom */
+  /* padding-top: 900px; */
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.image-gallery img {
+  width: 25%; /* Each image will take up 25% of the container's width */
+  height: 40vh; /* Set a fixed height relative to the viewport height */
+  object-fit: cover; /* Ensures that the aspect ratio of the image is maintained without stretching */
+  margin: 0; /* Remove margin to have images aligned perfectly */
+}
+
+/* Ensure that the rest of the content does not overlap the image gallery */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative; /* Needed because the image gallery is absolute */
+  padding-bottom: 40vh; 
+}
+
+/* Adjust the container if needed */
+.container {
+  width: 100%; /* Take up full width */
+  /* Rest of your container styles */
+}
+.content-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh; /* Full viewport height */
+    padding: 20px; /* Padding for spacing */
+}
+
+.image-container {
+    position: relative; /* Needed for absolute positioning of nav inside it */
+    width: 80%; /* Adjust width as needed */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the image and buttons horizontally */
+    margin-bottom: 20px; /* Space below the container */
+}
+
+.image-container img {
+    width: 100%; /* Make the image take the full width of its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.button-container {
+    position: absolute; /* Position the buttons over the image */
+    top: 0; /* Start from the top of the image */
+    left: 0; /* Align to the left side */
+    width: 100%; /* Span the entire width of the image */
+    height: 100%; /* Cover the entire height of the image */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Evenly space buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+}
+
+.button-container a button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #d2d24d;
+    border: none;
+    cursor: pointer;
+    width: 80%; /* Make buttons wider to fill the container */
+}
+
+.button-container a button:hover {
+    background-color: #40684f;
+}
+.button-container1 {
+    position: relative; /* Position the buttons over the image */
+    top: 0; /* Start from the top of the image */
+    left: 0; /* Align to the left side */
+    width: 100%; /* Span the entire width of the image */
+    height: 100%; /* Cover the entire height of the image */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; /* Evenly space buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    /* background-color: rgba(0, 0, 0, 0.6); Semi-transparent black background */
+}
+
+.button-container1 a button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #d2d24d;
+    border: none;
+    cursor: pointer;
+    width: 80%; /* Make buttons wider to fill the container */
+}
+
+.button-container1 a button:hover {
+    background-color: #40684f;
+}
+.home-button button {
+    background-color: #d2d24d; /* Bright yellow background */
+    color: rgb(8, 8, 8); /* Black text color */
+    padding: 8px 16px; /* Padding inside the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: absolute; /* Absolute position to place it at top left */
+    left: 10px; /* Distance from the left */
+    top: 10px; /* Distance from the top */
+    margin-bottom: 0px;
+}
+
+.home-button button:hover {
+    background-color: #40684f; /* Slightly darker yellow on hover */
+
+    
+}
+.home-button1 button {
+    background-color: #d2d24d; /* Bright yellow background */
+    color: rgb(8, 8, 8); /* Black text color */
+    padding: 8px 16px; /* Padding inside the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: absolute; /* Absolute position to place it at top left */
+    left: 10px; /* Distance from the left */
+    top: 60px; /* Distance from the top */
+    margin-bottom: 0px;
+}
+
+.home-button1 button:hover {
+    background-color: #40684f; /* Slightly darker yellow on hover */
+}
+.home-button2 {
+    padding: 8px 16px; /* Padding inside the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: absolute; /* Absolute position to place it at top left */
+    left: 80px; /* Distance from the left */
+    top: 10px; /* Distance from the top */
+    margin-bottom: 0px;
+}
+.home-button3  {
+    padding: 8px 16px; /* Padding inside the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    position: absolute; /* Absolute position to place it at top left */
+    left: 80px; /* Distance from the left */
+    top: 10px; /* Distance from the top */
+    margin-bottom: 0px;
+    width: 50%; 
+    text-align: center;
+    padding-left: 300px;
+    font-size: 50px;
+}
+.profile-page .button-container {
+    display: flex; /* Aligns buttons in a row */
+    justify-content: center; /* Center-align the buttons container */
+    gap: 10px; /* Adds space between buttons */
+    margin-top: 10px; /* Adds some space below the username */
+}
+
+.profile-page .follow,.directmessage,.review,.report-button {
+    padding: 10px 20px;
+    background-color: #d2d24d; /* Yellow background */
+    color: black; /* Text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.profile-page .profile-button:hover {
+    background-color: #40684f; /* Green background on hover */
+}
+/* Container for the profile form to create a yellow box */
+
+.profile-form {
+    background-color: #40684f; /* Light yellow background */
+    padding: 30px; /* Increased padding around the form elements */
+    border-radius: 8px; /* Slightly larger rounded corners for the box */
+    max-width: 600px; /* Increased maximum width of the form container */
+    margin: 20px auto; /* Center the form on the page with more margin */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Enhanced shadow for more depth */
+    font-size: 18px; /* Larger font size for all text in the form */
+}
+
+/* Styles for input fields and textarea within the profile form */
+.profile-form input,
+.profile-form textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* More padding for larger touch area */
+    margin-bottom: 15px; /* More space between fields */
+    border: 2px solid #ccc; /* Thicker border for better visibility */
+    border-radius: 4px; /* Rounded corners for inputs */
+}
+
+/* Styles for the save changes button within the profile form */
+.save-changes-btn {
+    background-color: #d2d24d; /* Yellow background */
+    color: black; /* Text color */
+    padding: 12px 20px; /* Increased padding inside the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    display: block; /* Make the button block to occupy full width of form */
+    width: 100%;
+    font-weight: bold; /* Bold text */
+    font-size: 20px; /* Larger font size for the button */
+}
+
+/* Hover effect for the save changes button */
+.save-changes-btn:hover {
+    background-color: #40684f; /* Green background on hover */
+}
+.edit-profile-heading {
+    text-align: center; /* Center the heading horizontally */
+    font-size: 32px; /* Increase the font size to make it bigger */
+    font-weight: bold; /* Make the text bold */
+    margin-top: 20px; /* Add some space at the top */
+    margin-bottom: 20px; /* Add some space at the bottom to separate from content below */
+    width: 100%; /* Ensure it spans the full width for consistent centering */
+    color: #333; /* Optional: Set a color for the text */
+}
+.home-username {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px; /* Adjust the width as needed */
+    padding: 8px;
+    margin-top: 10px; /* Adjust margin to ensure it's at the very top */
+    border: 1px solid #ccc; /* Optional: Adds a border around the input field */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow below the input field */
+}
+.reviews-wrapper {
+    background-color: #d2d24d; /* Bright yellow background */
+    padding: 20px;
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px; /* Maximum width for larger screens */
+    margin: 40px auto; /* Center the wrapper horizontally and add vertical spacing */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.review-container {
+    background-color: #ffffff; /* White background for contrast */
+    margin: 10px 0; /* Spacing between reviews */
+    padding: 15px;
+    border-radius: 5px; /* Slightly rounded corners for each review */
+}
+
+.review-details {
+    font-size: 16px; /* Font size for readability */
+    line-height: 1.6; /* Line height for better readability */
+    color: #333; /* Dark grey color for text */
+}
+
+.review-stars {
+    color: #ffc107; /* Color for the star ratings */
+    font-size: 18px; /* Size of the stars */
+}
+
+
+
+</style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        
+        <a href="{% url 'home' %}" class="home-button"><button>Home</button></a>
+        <!-- Other navbar content -->
+        <span class="home-button2">Hello, {{request.user}}</span>
+        <span ><a  class="home-button1" href="{% url 'logout' %}"><button type="button">Logout</button></a></span>
+        <div class="nav-item inbox-icon-container">
+            <a href="{% url 'inbox' %}" class="inbox-icon"><i class="far fa-paper-plane"></i></a>
+        </div>
+
+    
+    </nav>
+
+    {% block content %}
+    <!-- Your content goes here -->
+    {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "extend.html" %}
+{% load static %}
+
+
+
+{% block title %}Couture Connect{% endblock %}
+
+{% block content %}
+<div class="content-area">
+    <header>
+      <h1>Welcome to Couture Connect<3<3</h1>
+
+    </header>
+    
+    <!-- Image container with an explicit img element -->
+    <div class="image-container">
+        <input type="text" id="username" name="username" style="z-index:1" required>
+        <img src="{% static 'images/a.jpg' %}" alt="Central Feature">
+        <nav class="button-container">
+            <a href="{% url 'directmessage' %}"><button>Direct Message</button></a>
+            <a href="{% url 'profile' %}"><button>Profile</button></a>
+            <a href="{% url 'review' %}"><button>Review</button></a>
+            <a href="{% url 'explore' %}"><button>Explore Page</button></a>
+            <a href="{% url 'edit-profile' %}"><button>Edit profile</button></a>
+        </nav>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "extend.html" %}
+{% load static %}
+
+{% block title %}Explore{% endblock %}
+
+{% block content %}
+<div class="explore-container">
+    <h1 class="home-button3" style="z-index:1">Explore</h1>
+    <div class="image-gallery">
+        {% for i in image_range %}
+            <img src="{% static 'images/explorepage' %}{{ i }}.jpeg" alt="Explore Image {{ i }}">
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

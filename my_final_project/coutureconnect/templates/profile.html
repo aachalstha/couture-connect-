@@ -1,0 +1,44 @@
+{% extends 'extend.html' %}
+
+{% load static %}
+
+<!-- {% block title %}Maya Smith{% endblock %} -->
+
+{% block content %}
+  
+  
+
+
+  <div class="container">
+      <img src="{% static 'images/d.jpg' %}" alt="D Image">
+      <h1>{{ user.username }}</h1>
+      <nav class="button-container1">
+        <a href= "#" ><button class="follow-button">Follow</button></a>
+        <a href="{% url 'directmessage' %}"><button>Direct Message</button></a>
+        <a href="{% url 'review2' %}"><button>Review</button></a>
+        <a href="{% url 'report' %}"><button>Report</button></a>
+        <a href= "#" ><button class="post-button">Post</button></a>
+        
+    </nav>
+      
+      <!-- <button class="review-button">Review</button> Review button added here
+      <button class="Directmessage-button">Direct Message</button>  -->
+      <h2>Posts</h2>
+  </div>
+
+  <!-- New section for the images -->
+ 
+ 
+  
+  <div class="image-gallery">
+    <img src="{% static 'images/e.jpg' %}" alt="Image 1">
+    <img src="{% static 'images/f.jpg' %}" alt="Image 2">
+    <img src="{% static 'images/g.jpg' %}" alt="Image 3">
+    <img src="{% static 'images/h.jpg' %}" alt="Image 4">
+
+    
+  </div>
+{% endblock %}
+
+
+

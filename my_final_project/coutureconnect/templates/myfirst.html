@@ -1,0 +1,51 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olive Green Background</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            text-align: center;
+        }
+        .login-button,
+        .signup-button {
+            padding: 10px 20px;
+            background-color: #d2d24d;
+            color: rgb(21, 19, 19);
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .login-button:hover,
+        .signup-button:hover {
+            background-color:#40684f;
+        }
+        
+    </style>
+</head>
+<body style="background-color: #808000;">
+    <div class="container">
+        <img src="{% static 'images/a.jpg' %}" alt="">
+        <h1>Couture Connect</h1>
+        <p>Connect with the beauty and fashion world</p>
+        <a href="{% url 'loginPage' %}" class="login-button">Login</a>
+        <a href="{% url 'signup' %}" class="signup-button">Sign Up</a>
+    </div>
+    {% block content %}
+
+
+    {% endblock %}
+</body>
+</html>
